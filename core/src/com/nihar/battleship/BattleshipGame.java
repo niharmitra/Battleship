@@ -21,12 +21,6 @@ import com.nihar.battleship.ship.Ship.ShipType;
  *
  */
 public class BattleshipGame extends Game {
-	private ShapeRenderer sr;
-	private Gui gui;
-	private GridStage stage;
-	//Game data, grid and ships
-	private ArrayList<ArrayList<Cell>> grid;
-	public ArrayList<ArrayList<Cell>> getGrid() {return grid;}
 	public ArrayList<Ship> ships;
 	public ArrayList<Ship> getShips() {return ships;}
 	//Player data
@@ -44,9 +38,6 @@ public class BattleshipGame extends Game {
 	
 	@Override
 	public void create() {
-		sr = new ShapeRenderer();
-		gui = new Gui(this, sr);
-		stage = new GridStage();
 		setScreen(new GridScreen());
 		grid = new ArrayList<ArrayList<Cell>>(5);
 		for(int i=0; i<5; i++) {
@@ -55,28 +46,6 @@ public class BattleshipGame extends Game {
 				grid.get(i).add(new Cell(i,j));
 			}
 		}
-	}
-	
-	private Ship placeShip(Cell... cell) {
-		//Somehow do the spawning lol
-		Ship ship;
-		switch(cell.length) {
-		case 1:
-			
-			break;
-		case 2:
-			break;
-		case 3:
-			break;
-		case 4:
-			break;
-		case 5:
-			break;
-		default:
-			return null;
-		}
-		ship = new Ship(ShipType.MOTORBOAT, randomCell());
-		return ship;
 	}
 	
 	private Cell randomCell() {
