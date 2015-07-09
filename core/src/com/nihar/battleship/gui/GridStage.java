@@ -21,6 +21,14 @@ public class GridStage extends Stage {
     public GridStage() {
     	super();
     	setUpCamera();
+    	grid = new ArrayList<ArrayList<Cell>>(5);
+		for(int i=0; i<5; i++) {
+			grid.add(new ArrayList<Cell>(5));
+			for(int j=0; j<5; j++) {
+				grid.get(i).add(new Cell(i,j));
+				this.addActor(grid.get(i).get(j));
+			}
+		}
     }
     
     private void setUpCamera() {
@@ -30,9 +38,8 @@ public class GridStage extends Stage {
     }
     
     @Override
-    public void act(float delta) {
-    	super.act(delta);
-    	
+    public void act() {
+    	super.act();
     }
     
     @Override

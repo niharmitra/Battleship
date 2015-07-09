@@ -7,6 +7,8 @@ import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.scenes.scene2d.Actor;
+import com.badlogic.gdx.scenes.scene2d.ui.Label;
+import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.nihar.battleship.ship.*;
 
 /**
@@ -24,6 +26,7 @@ public class Cell extends Actor {
 	Texture selected = new Texture(Gdx.files.internal("select.png"));
 	Texture motorboat = new Texture(Gdx.files.internal("motorboat.png"));
 	Texture destroyer = new Texture(Gdx.files.internal("sailboat.png"));
+//	private Label display = new Label("X", new Skin(Gdx.files.internal("uiskin.json")));
 	//Ship contained
 	public Ship ship = null;
 	private int x, y;
@@ -57,13 +60,6 @@ public class Cell extends Actor {
 	public void draw(Batch batch, float parentAlpha) {
 		batch.end();
 		drawWater();
-		switch(state) {
-		case O:
-			
-			break;
-		case X:
-			break;
-		}
 		batch.begin();
 	}
 	
@@ -72,6 +68,11 @@ public class Cell extends Actor {
 			return true;
 		}
 		return false;
+	}
+	
+	@Override
+	public void act(float delta) {
+//		draw();
 	}
 	
 	/**
